@@ -1,7 +1,4 @@
-
-from cards.Deck_of_cards import *
-from cards.class_player import Player
-from cards_new.card_game1 import CardGame
+from games_cards.itay.card_game import CardGame
 
 cardGame = CardGame("tom","itay")
 
@@ -15,5 +12,7 @@ for round in range (10):
 print('===================================')
 
 cardGame.show()
+
+cardGame.new_game()
 
 print(cardGame.get_winner())

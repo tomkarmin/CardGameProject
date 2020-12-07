@@ -1,19 +1,35 @@
-import random
-from cards.Deck_of_cards import Deck_Of_Cards
+from games_cards.itay.Deck_of_cards import Deck_Of_Cards
 
-from cards.class_player import Player
-
+from games_cards.itay.class_player import Player
 
 class CardGame:
-    def __init__(self, name1, name2, numCards=10):
+    def __init__(self, name1, name2, num_cards=10):
         self.deckK = Deck_Of_Cards()
-        player1 = Player(name1, numCards)
-        player2 = Player(name2, numCards)
+        if not self.validate_name(name1):
+            print("error in name 1")
+            return
+        if not self.validate_name(name2):
+            print("error in name 2")
+            return
+        if type(num_cards) != int or num_cards < 10:
+            print("invalid card number")
+            return
+        player1 = Player(name1, num_cards)
+        player2 = Player(name2, num_cards)
         self.player1 = player1
         self.player2 = player2
-        self.numCards = numCards
+        self.numCards = num_cards
         self.new_game_called = False
         self.new_game()
+
+    def validate_name(self, name):
+        return type(name) is str and len(name) > 0
+    #
+    #         if type(name) is str and len(name) > 0:
+    #             return True
+    #         else:
+    #             return False
+    #
 
     def new_game(self):
         if self.new_game_called:
@@ -26,6 +42,7 @@ class CardGame:
                 self.player2.setHand(self.deckK)
             else:
                 print("ERROR")
+
     def get_round_winner(self):
         x = self.player1.getCard()
         y = self.player2.getCard()
@@ -39,9 +56,9 @@ class CardGame:
             return [self.player2.name, y]
 
     def get_winner(self):
-        if (len(self.player1.package)==len(self.player2.package)):
+        if len(self.player1.package) == len(self.player2.package):
             return None
-        elif (len(self.player1.package)>len(self.player2.package)):
+        elif len(self.player1.package) > len(self.player2.package):
             return self.player2.name
         else:
             return self.player1.name
