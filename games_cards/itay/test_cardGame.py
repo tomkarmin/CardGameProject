@@ -25,8 +25,7 @@ class TestCardGame(TestCase):
         self.assertEqual(len(self.game.player1.package.card_list),len(self.game.player2.package.card_list))
         self.assertEqual(len(self.deck1 ),32)
 
-    def test_get_round_winner(self):
-        self.fail()
+
 
     def test_get_winner(self): #בדיקה זו מוכיחה שהשחקן שיש ךו פחות קלפים ביד מנצח
        self.game.player2.addCard(self.card3)
