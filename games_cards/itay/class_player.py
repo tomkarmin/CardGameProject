@@ -1,7 +1,7 @@
-from games_cards.itay.Deck_of_cards import Deck_Of_Cards
+from Deck_of_cards import Deck_Of_Cards
 
 
-from games_cards.itay.class_cards import Card
+from class_cards import Card
 
 
 class Player:
@@ -20,8 +20,9 @@ class Player:
             self.package.card_list.append(deck1.deal_one())
 
     def getCard(self): #פונקציה השולפת קלף מיד השחקן שוב באמצעות דיל וואן
-        if len(self.package) != 0:
+        if len(self.package) > 0:
             return self.package.deal_one()
+
 
 
     def addCard(self, c): #פונקציה  המקבלת קלף ומוסיפה אותו ליד השחקן
@@ -35,14 +36,3 @@ class Player:
               f"and player's cards package: {self.package}")
 
 
-def main():
-    player = Player("Tom")
-    player.show()
-
-    deck = Deck_Of_Cards()
-    player.setHand(deck)
-    player.show()
-
-
-if __name__ == "__main__":
-    main()

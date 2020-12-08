@@ -1,6 +1,6 @@
 import random
 
-from games_cards.itay.class_cards import Card
+from class_cards import Card
 
 
 class Deck_Of_Cards: #קלאס אשר נקרא חבילת קלפים
@@ -30,6 +30,7 @@ class Deck_Of_Cards: #קלאס אשר נקרא חבילת קלפים
         for i in self.card_list:
             print(i)
 
+    # פונקציה המאפשרת את הדפסת החפיסה
     def __str__(self):
         return str(self.card_list)
 
